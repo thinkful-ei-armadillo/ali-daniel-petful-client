@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import "./App.css";
 import Header from "./Header";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Adoption from "./Adoption";
 import HomePage from "./HomePage";
 
 class App extends Component {
-  state = { hasError: false }
+  state = { hasError: false };
 
   static getDerivedStateFromError(error) {
-    console.error(error)
-    return { hasError: true }
+    console.error(error);
+    return { hasError: true };
   }
 
   // handleAdoption = () => {};
 
   render() {
     return (
-      <div className='App'>
-        <header className='App__header'>
+      <div className="App">
+        <header className="App__header">
           <Header />
         </header>
-        <main className='App_main'>
+        <main className="App_main">
           <Route exact path={"/"} component={HomePage} />
           <Route path={"/adoption"} component={Adoption} />
         </main>
