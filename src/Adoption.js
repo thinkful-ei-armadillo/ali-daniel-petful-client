@@ -14,13 +14,11 @@ class Adoption extends Component {
   render() {
     return (
       <>
-        <div>
-          Cat Next in Queue
+        <div className='cat'>
           <Cat />        
         </div>
-
-        <div>
-          Dog Next in Queue
+        <br />
+        <div className='dog'>
           <Dog />
         </div>
       </>

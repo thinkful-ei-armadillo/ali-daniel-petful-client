@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import config from "./config";
+import './cat.css';
 
 export default class Cat extends Component {
-  // props = this.state
+  
   state = {
-    imageURL: "",
+    imageURL: null,
     sex: "",
     age: null,
     breed: "",
@@ -24,8 +25,6 @@ export default class Cat extends Component {
         return res.json();
       })
       .then(res => {
-        // const animal = res.json();
-        // console.log(res);
         this.setState({
           imageURL: res.imageURL,
           sex: res.sex,
@@ -38,25 +37,6 @@ export default class Cat extends Component {
       .catch(err => {
         return new Error(err);
       });
-
-    let content = (
-      <>
-        <h2>{this.state.name}</h2>
-        <img src={this.state.imageURL} alt={this.state.imageDescription} />
-        <dl>
-          <dt>Gender</dt>
-          <dd>{this.state.sex}</dd>
-          <dt>Age</dt>
-          <dd>{this.state.age}</dd>
-          <dt>Breed</dt>
-          <dd>{this.state.breed}</dd>
-          <dt>Story</dt>
-          <dd>{this.state.story}</dd>
-          <dd> Last Pet Adopted By {this.state.adopterName}</dd>
-        </dl>
-      </>
-    );
-    return content;
   };
 
   handleAdoption(event) {
@@ -67,7 +47,7 @@ export default class Cat extends Component {
         return res.json();
       })
       .then(res => {
-        this.setState({ adopterName: JSON.stringify(res) });
+        this.setState({ adopterName: res });
         this.getCat();
       })
       .catch(err => {
@@ -76,11 +56,23 @@ export default class Cat extends Component {
   }
 
   render() {
+    let content = (
+      <>
+        <h2>{this.state.name}</h2>
+        <img src={this.state.imageURL} alt={this.state.imageDescription} id='cat-pic'/>
+        <ul className='cat-info'>
+          <li>Gender: {this.state.sex}</li>
+          <li>Age: {this.state.age}</li>
+          <li>Breed: {this.state.breed}</li>
+          <li>Story: {this.state.story}</li>
+          <li> {!this.state.adopterName ? null : 'Last Pet Adopted By ' + this.state.adopterName} </li>
+        </ul>
+      </>)
     return (
       <div className="pet-wrapper">
-        {this.getCat()}
+        {!this.state.imageURL ? this.getCat() : content}
         <button className="adopt-button" onClick={e => this.handleAdoption(e)}>
-          Adopt
+          Adopt!
         </button>
       </div>
     );

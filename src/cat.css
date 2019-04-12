@@ -1,0 +1,14 @@
+#cat-pic {
+  width: 40%;
+}
+
+.cat-info {
+  list-style: none;
+  text-align: center;
+  font-size: 16px;
+}
+
+.cat-info > li {
+  text-align: center;
+  font-size: 18px;
+}
