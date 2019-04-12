@@ -2,15 +2,19 @@
 
 by Ali Lahrime and Daniel Ors
 
-### `npm start`
+## Intro
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Petful is an animal adoption tool - we have many cute puppies and kittens for you to adopt!
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Simply click the link below and select the dog or cat you would like to adopt.
 
-### `npm test`
+## Demo
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://petful-ali-daniel.now.sh/
+
+## Tech Stack
+
+* ReactJS
+* React Router
+* Interfaces with a RESTful API on an ExpressJS server
+* Deployed using Zeit (Now)
