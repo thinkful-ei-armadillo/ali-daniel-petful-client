@@ -6,16 +6,27 @@ import Adoption from "./Adoption";
 import HomePage from "./HomePage";
 
 class App extends Component {
-  handleAdoption = () => {};
+  state = { hasError: false }
+
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return { hasError: true }
+  }
+
+  // handleAdoption = () => {};
+
   render() {
     return (
-      <>
-        <Header />
-        <Route exact path={"/"} component={HomePage} />
-        <Route path={"/adoption"} component={Adoption} />
-
+      <div className='App'>
+        <header className='App__header'>
+          <Header />
+        </header>
+        <main className='App_main'>
+          <Route exact path={"/"} component={HomePage} />
+          <Route path={"/adoption"} component={Adoption} />
+        </main>
         {/* <Route path={'/adoption/pets'} component={Pet} /> */}
-      </>
+      </div>
     );
   }
 }

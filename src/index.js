@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-// import { PetProvider } from 'contexts/petcontext'
+import { PetProvider } from './petContext'
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <PetProvider>
+      <App />
+    </PetProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

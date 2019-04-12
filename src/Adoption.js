@@ -1,19 +1,27 @@
 import React, { Component } from "react";
+import Dog from './Dog';
+import Cat from './Cat';
+import PetContext from './petContext';
 
 class Adoption extends Component {
-  deleteCat = () => {};
+  static defaultProps = {
+    match: { params: {} },
+  }
+
+  static contextType = PetContext;
+
 
   render() {
     return (
       <>
         <div>
           Cat Next in Queue
-          <button onClick={deleteCat}>Adopt Cat!</button>
+          <Cat />        
         </div>
 
         <div>
           Dog Next in Queue
-          <button onClick={deleteDog}>Adopt a Dog!</button>
+          <Dog />
         </div>
       </>
     );
